@@ -15,11 +15,11 @@ try {
     // Server settings
     $mail->SMTPDebug  = SMTP::DEBUG_OFF;
     $mail->isSMTP(); // Send using SMTP
-    $mail->Host       = 'smtp.gmail.com'; // Set the SMTP server to send through
+    $mail->Host       = ''; // Set the SMTP server to send through
     $mail->SMTPAuth   = true; // Enable SMTP authentication
-    $mail->Username   = 'galacticinvestmentgic@gmail.com'; // SMTP username
-    $mail->Password   = 'pedanzyyuwqljemy '; // SMTP password
-    $mail->SMTPSecure = 'tls';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+    $mail->Username   = ''; // SMTP username
+    $mail->Password   = ' '; // SMTP password
+    $mail->SMTPSecure = '';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
     $mail->Port       = 587; // TCP port to connect to
 
    // Recipients
@@ -34,7 +34,7 @@ try {
     }
 
     // Verify the reCAPTCHA response
-    $recaptchaSecretKey = '6LdldUsoAAAAALRph3NiboB3FbhcL2v_QskUIK1-'; // Replace with your secret key
+    $recaptchaSecretKey = '-'; // Replace with your secret key
     $recaptchaResponse = $_POST['g-recaptcha-response'];
     $recaptchaVerifyUrl = "https://www.google.com/recaptcha/api/siteverify?secret=$recaptchaSecretKey&response=$recaptchaResponse";
     $recaptchaResponseData = json_decode(file_get_contents($recaptchaVerifyUrl));
@@ -56,7 +56,7 @@ try {
    $mail->setFrom($userEmail, $name);
 
    // Recipient (Galactic Investments)
-   $mail->addAddress('galacticinvestmentgic@gmail.com', 'Galactic Investments');
+   $mail->addAddress('', 'Galactic Investments');
 
    // Subject
    $subject = 'New Request from ' . $name;
@@ -160,7 +160,7 @@ $userMessage = '
    $mail->ClearAddresses();
    
    // Set the sender's email and name explicitly
-   $mail->setFrom('galacticinvestmentgic@gmail.com', 'Galactic');
+   $mail->setFrom('', 'Galactic');
    $mail->addAddress($userEmail);
    
    $mail->Subject = "Re: " . $subject;
